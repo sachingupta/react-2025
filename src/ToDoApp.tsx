@@ -1,5 +1,6 @@
 import './ToDoApp.css';
 import { useState } from 'react';
+import useLocalStorage from './useLocalStorage';
 
 interface Todo {
   id: number;
@@ -16,7 +17,10 @@ const TODOs: Todo[] = [
 ];
 
 export function ToDoApp() {
+  const [toDos, setToDos] = useLocalStorage('todos', TODOs);
+  /*
   const [toDos, setToDos] = useState<Todo[]>(TODOs);
+  */
 
   function onStateChange(id: number, isDone: boolean) {
     const updatedToDos = toDos.map((todo) => {
