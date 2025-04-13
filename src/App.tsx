@@ -3,6 +3,7 @@ import './App.css'
 import {Profile} from './Profile';
 import {MyButton} from './MyButton';
 import { FilterableProductTable } from './FilterableProductTable';
+import { ToDoApp } from './ToDoApp';
 
 function App() {
   const [globalCount, setGlobalCount] = useState(0);
@@ -21,6 +22,8 @@ function App() {
       <Profile />
       <h2>3. Filterable Product Table</h2>
       <FilterableProductTable/>
+      <h2>4. ToDo App</h2>
+      <ToDoApp/>
     </>
   )
 }

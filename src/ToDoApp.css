@@ -1,0 +1,13 @@
+ul {
+    li {
+        list-style: none;
+    }
+}
+
+.todo-item {
+    display: flex;
+    button {
+        padding: 0 5px;
+        margin: 0 5px;
+    }
+}
