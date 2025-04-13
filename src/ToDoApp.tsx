@@ -35,9 +35,13 @@ export function ToDoApp() {
 
   function onAdd(todoText: string) {
     const maxId = toDos.reduce((max, todo) => Math.max(max, todo.id), 0);
-    const updatedToDos = toDos.slice();
-    updatedToDos.push({id: maxId + 1, title: todoText, createdAt: Date.now(), dueBy: Date.now(), isDone: false});
-    setToDos(updatedToDos);
+    const newTodo = {id: maxId + 1, title: todoText, createdAt: Date.now(), dueBy: Date.now(), isDone: false}
+    setToDos([...toDos, newTodo]);
+  }
+
+  function sortByCreatedTime(sortOrder: string) {
+    const updatedToDos = toDos.sort((a, b) => sortOrder === 'asc' ? a.createdAt - b.createdAt : b.createdAt - a.createdAt)
+    setToDos(updatedToDos); 
   }
 
   return (
