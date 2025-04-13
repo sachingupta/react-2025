@@ -1,5 +1,6 @@
 /**https://react.dev/learn/thinking-in-react */
 import './FilterableProductTable.css'
+import {useState} from 'react';
 
 const PRODUCTS = [
     { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
@@ -12,21 +13,26 @@ const PRODUCTS = [
 ];
 
 export function FilterableProductTable() {
+    const [filterText, setFilterText] = useState('');
+    const [inStockOnly, setInStockOnly] = useState(false);
     return (
         <div className='filterableProductTable'>
-            <SearchBar />
-            <ProductTable products={PRODUCTS} />
+            <SearchBar filterText={filterText} inStockOnly={inStockOnly} onFilterTextChange={setFilterText}
+        onInStockOnlyChange={setInStockOnly}  />
+            <ProductTable products={PRODUCTS} filterText={filterText} inStockOnly={inStockOnly} />
         </div>
     );
 }
 
-function SearchBar() {
+function SearchBar({filterText, inStockOnly, onFilterTextChange, onInStockOnlyChange}) {
     return (
         <form className='searchBar'>
-            <input type="text" placeholder="Search..." />
+            <input type="text" value={filterText}
+            onChange={(e) => onFilterTextChange(e.target.value)}
+            placeholder="Search..." />
             <div>
             <label>
-                <input type="checkbox" />
+                <input type="checkbox" checked={inStockOnly} onChange={(e) => onInStockOnlyChange(e.target.checked)} />
                 {' '}
                 Only show products in stock
             </label>
@@ -35,11 +41,16 @@ function SearchBar() {
     );
 }
 
-function ProductTable({ products }) {
+function ProductTable({ products, filterText, inStockOnly}) {
     // Get unique categories from the products array
-    const categories = [...new Set(products.map((product) => product.category))];
+    const filteredProducts = products.filter((product) => 
+        product.name.toLowerCase().indexOf(
+            filterText.toLowerCase()
+          ) != -1 && (!inStockOnly || product.stocked)
+    );
+    const categories = [...new Set(filteredProducts.map((product) => product.category))];
     const productTableSections = categories.map((category) => {
-        const categoryProducts = products.filter((product) => product.category === category)
+        const categoryProducts = filteredProducts.filter((product) => product.category === category)
         return (<ProductTableSection category={category} products={categoryProducts} />);
     });
 
