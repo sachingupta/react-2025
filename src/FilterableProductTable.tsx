@@ -1,6 +1,6 @@
 /**https://react.dev/learn/thinking-in-react */
 import './FilterableProductTable.css'
-import {useState} from 'react';
+import { useState } from 'react';
 
 const PRODUCTS = [
     { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
@@ -18,35 +18,35 @@ export function FilterableProductTable() {
     return (
         <div className='filterableProductTable'>
             <SearchBar filterText={filterText} inStockOnly={inStockOnly} onFilterTextChange={setFilterText}
-        onInStockOnlyChange={setInStockOnly}  />
+                onInStockOnlyChange={setInStockOnly} />
             <ProductTable products={PRODUCTS} filterText={filterText} inStockOnly={inStockOnly} />
         </div>
     );
 }
 
-function SearchBar({filterText, inStockOnly, onFilterTextChange, onInStockOnlyChange}) {
+function SearchBar({ filterText, inStockOnly, onFilterTextChange, onInStockOnlyChange }) {
     return (
         <form className='searchBar'>
             <input type="text" value={filterText}
-            onChange={(e) => onFilterTextChange(e.target.value)}
-            placeholder="Search..." />
+                onChange={(e) => onFilterTextChange(e.target.value)}
+                placeholder="Search..." />
             <div>
-            <label>
-                <input type="checkbox" checked={inStockOnly} onChange={(e) => onInStockOnlyChange(e.target.checked)} />
-                {' '}
-                Only show products in stock
-            </label>
+                <label>
+                    <input type="checkbox" checked={inStockOnly} onChange={(e) => onInStockOnlyChange(e.target.checked)} />
+                    {' '}
+                    Only show products in stock
+                </label>
             </div>
         </form>
     );
 }
 
-function ProductTable({ products, filterText, inStockOnly}) {
+function ProductTable({ products, filterText, inStockOnly }) {
     // Get unique categories from the products array
-    const filteredProducts = products.filter((product) => 
+    const filteredProducts = products.filter((product) =>
         product.name.toLowerCase().indexOf(
             filterText.toLowerCase()
-          ) != -1 && (!inStockOnly || product.stocked)
+        ) != -1 && (!inStockOnly || product.stocked)
     );
     const categories = [...new Set(filteredProducts.map((product) => product.category))];
     const productTableSections = categories.map((category) => {
