@@ -1,5 +1,9 @@
 # React + TypeScript + Vite
 
+# Learning+ Inspiration
+## 4.TODO App
+https://medium.com/@zhr77fth/building-a-comprehensive-todo-list-using-react-js-and-typescript-7e0aea2de6f9
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
