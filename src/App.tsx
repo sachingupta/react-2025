@@ -4,6 +4,7 @@ import {Profile} from './Profile';
 import {MyButton} from './MyButton';
 import { FilterableProductTable } from './FilterableProductTable';
 import { ToDoApp } from './ToDoApp';
+import { NavBar } from './components/NavBar';
 
 function App() {
   const [globalCount, setGlobalCount] = useState(0);
@@ -24,6 +25,8 @@ function App() {
       <FilterableProductTable/>
       <h2>4. ToDo App</h2>
       <ToDoApp/>
+      <h2>5. Nav Bar</h2>
+      <NavBar/>
     </>
   )
 }

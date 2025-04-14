@@ -1,0 +1,22 @@
+ul.tab-list {
+    list-style-type: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Use flexbox to arrange items horizontally */
+    li {
+        padding: 10px 15px; /* Add padding for spacing */
+        margin-right: 5px; /* Add a little space between tabs */
+        border: 1px solid #ccc; /* Add a border for visual separation */
+        border-radius: 5px 5px 0 0; /* Round the top corners */
+        cursor: pointer; /* Change cursor on hover */
+        &&:hover {
+            background-color: #f0f0f0;
+          }
+      }
+  }
+
+.active {
+    color: blue;
+    background-color: #eee; /* Highlight the active tab */
+    border-bottom: 1px solid transparent; /* Hide the bottom border */
+}
