@@ -5,6 +5,7 @@ import {MyButton} from './MyButton';
 import { FilterableProductTable } from './FilterableProductTable';
 import { ToDoApp } from './ToDoApp';
 import { NavBar } from './components/NavBar';
+import { Accordion } from './components/Accordion';
 
 function App() {
   const [globalCount, setGlobalCount] = useState(0);
@@ -27,6 +28,8 @@ function App() {
       <ToDoApp/>
       <h2>5. Nav Bar</h2>
       <NavBar/>
+      <h2>6. Accordion</h2>
+      <Accordion/>
     </>
   )
 }
