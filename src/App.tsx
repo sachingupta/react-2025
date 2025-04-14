@@ -7,6 +7,7 @@ import { ToDoApp } from './ToDoApp';
 import { NavBar } from './components/NavBar';
 import { Accordion } from './components/Accordion';
 import { ContextExample } from './components/ContextExample';
+import { ReduxExample } from './components/ReduxExample';
 
 function App() {
   const [globalCount, setGlobalCount] = useState(0);
@@ -33,6 +34,9 @@ function App() {
       <Accordion/>
       <h2>7. Context Example</h2>
       <ContextExample/>
+
+      <h2>7. Redux Example</h2>
+      <ReduxExample/>
     </>
   )
 }
