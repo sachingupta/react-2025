@@ -8,6 +8,7 @@ import { NavBar } from './components/NavBar';
 import { Accordion } from './components/Accordion';
 import { ContextExample } from './components/ContextExample';
 import { ReduxExample } from './components/ReduxExample';
+import { DataFetching } from './components/DataFetching';
 
 function App() {
   const [globalCount, setGlobalCount] = useState(0);
@@ -37,6 +38,9 @@ function App() {
 
       <h2>7. Redux Example</h2>
       <ReduxExample/>
+
+      <h2>8. Data Fetch Example</h2>
+      <DataFetching/>
     </>
   )
 }
