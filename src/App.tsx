@@ -6,6 +6,7 @@ import { FilterableProductTable } from './FilterableProductTable';
 import { ToDoApp } from './ToDoApp';
 import { NavBar } from './components/NavBar';
 import { Accordion } from './components/Accordion';
+import { ContextExample } from './components/ContextExample';
 
 function App() {
   const [globalCount, setGlobalCount] = useState(0);
@@ -30,6 +31,8 @@ function App() {
       <NavBar/>
       <h2>6. Accordion</h2>
       <Accordion/>
+      <h2>7. Context Example</h2>
+      <ContextExample/>
     </>
   )
 }
