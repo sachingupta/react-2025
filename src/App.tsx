@@ -10,6 +10,7 @@ import { ContextExample } from './components/ContextExample';
 import { ReduxExample } from './components/ReduxExample';
 import { DataFetching } from './components/DataFetching';
 import { ContactForm } from './components/Form';
+import { AutocompleteContainer } from './components/Autocomplete';
 
 function App() {
   const [globalCount, setGlobalCount] = useState(0);
@@ -43,6 +44,8 @@ function App() {
       <DataFetching/>
       <h2>9. Contact form</h2>
       <ContactForm/>
+      <h2> AutoComplete</h2>
+      <AutocompleteContainer />
     </>
   )
 }
