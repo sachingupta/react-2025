@@ -11,6 +11,7 @@ import { ReduxExample } from './components/ReduxExample';
 import { DataFetching } from './components/DataFetching';
 import { ContactForm } from './components/Form';
 import { AutocompleteContainer } from './components/Autocomplete';
+import { AutocompleteContainer2 } from './components/Autocomplete2';
 
 function App() {
   const [globalCount, setGlobalCount] = useState(0);
@@ -46,6 +47,8 @@ function App() {
       <ContactForm/>
       <h2> AutoComplete</h2>
       <AutocompleteContainer />
+      <h2> AutoComplete2</h2>
+      <AutocompleteContainer2 />
     </>
   )
 }
