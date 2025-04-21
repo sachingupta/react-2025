@@ -9,6 +9,7 @@ import { Accordion } from './components/Accordion';
 import { ContextExample } from './components/ContextExample';
 import { ReduxExample } from './components/ReduxExample';
 import { DataFetching } from './components/DataFetching';
+import { ContactForm } from './components/Form';
 
 function App() {
   const [globalCount, setGlobalCount] = useState(0);
@@ -40,6 +41,8 @@ function App() {
 
       <h2>8. Data Fetch Example</h2>
       <DataFetching/>
+      <h2>9. Contact form</h2>
+      <ContactForm/>
     </>
   )
 }
