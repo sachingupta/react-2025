@@ -12,6 +12,7 @@ import { DataFetching } from './components/DataFetching';
 import { ContactForm } from './components/Form';
 import { AutocompleteContainer } from './components/Autocomplete';
 import { AutocompleteContainer2 } from './components/Autocomplete2';
+import { ProgressBar } from './components/ProgressBar';
 
 function App() {
   const [globalCount, setGlobalCount] = useState(0);
@@ -19,8 +20,12 @@ function App() {
     setGlobalCount(globalCount + 1);
   }
 
+  const [hide, setHide] = useState(true);
+
   return (
     <>
+    <button onClick={() => setHide(!hide)}>{hide ? 'show' : 'Hide'} all example</button>
+      {!hide && (<div >
       <h1>React TypeScript - Playground 2025 for Sachin</h1>
       <h2>1. Counter</h2>
       <Counter globalCount={globalCount} onGlobalClick={handleGlobalClick} />
@@ -49,6 +54,9 @@ function App() {
       <AutocompleteContainer />
       <h2> AutoComplete2</h2>
       <AutocompleteContainer2 />
+      </div>)}
+      <h2> ProgressBar</h2>
+      <ProgressBar value={10} />
     </>
   )
 }
