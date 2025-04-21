@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export function DataFetching() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -9,7 +9,7 @@ export function DataFetching() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+        const response = await fetch('https://jsonplaceholder.typicode.com/todos');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -18,7 +18,7 @@ export function DataFetching() {
         setError(null);
       } catch (e) {
         setError(e);
-        setData(null);
+        setData([]);
       } finally {
         setLoading(false);
       }
@@ -34,10 +34,20 @@ export function DataFetching() {
     return <div>Error: {error.message}</div>;
   }
 
+  const toDos = data.map((todo) => {
+    return <li><ToDo todo={todo}/></li>
+  })
+
+  const apiResponseString = JSON.stringify(data, null, 2);
+
   return (
     <div>
       <h1>Data from API:</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <ul> {toDos}</ul>
     </div>
   );
+}
+
+function ToDo({todo}) {
+    return (<div><input type='checkbox' value={todo.completed} /> {todo.title}</div>);
 }
