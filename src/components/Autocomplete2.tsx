@@ -7,10 +7,13 @@ This tests your React skills, API interaction, and attention to detail.
 https://phillcode.hashnode.dev/create-reusable-react-components
 Statefull Containers will be the components that know all about your data state, and none or very little about interaction state.
 
+https://www.carlrippon.com/using-lodash-debounce-with-react-and-ts/
+
 Stateless Presenters are the components we've been discussing so far, the reusable ones. They know nothing about data state, and everything about interaction state.
  */
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { debounce } from "lodash"
 
 interface Post {
     userId: number;
@@ -33,14 +36,26 @@ export function AutocompleteContainer2() {
         return postTitles;
     };
 
-    async function onSearchChange() {
-        const results = await fetchData(query);
+    const debouncedSearch = useRef(
+      debounce(async (currentQuery) => {
+        const results = await fetchData(currentQuery);
         setSuggestions(results);
-    }
+      }, 300)
+    ).current;
 
     useEffect(() => {
-        onSearchChange()
-    }, [query])
+        if (query) {
+          debouncedSearch(query);
+        } else {
+          setSuggestions([]); // Clear suggestions when the query is empty
+        }
+      }, [query, debouncedSearch]);
+
+      useEffect(() => {
+        return () => {
+          debouncedSearch.cancel();
+        };
+      }, [debouncedSearch]);
 
     return (
         <div> 
