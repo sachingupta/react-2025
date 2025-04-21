@@ -13,6 +13,7 @@ import { ContactForm } from './components/Form';
 import { AutocompleteContainer } from './components/Autocomplete';
 import { AutocompleteContainer2 } from './components/Autocomplete2';
 import { ProgressBar } from './components/ProgressBar';
+import { ModalDialog, ModalLauncer } from './components/ModalDialog';
 
 function App() {
   const [globalCount, setGlobalCount] = useState(0);
@@ -54,9 +55,11 @@ function App() {
       <AutocompleteContainer />
       <h2> AutoComplete2</h2>
       <AutocompleteContainer2 />
-      </div>)}
       <h2> ProgressBar</h2>
       <ProgressBar value={10} />
+      </div>)}
+      <h2> Modal Dialog</h2>
+      <ModalLauncer />
     </>
   )
 }
