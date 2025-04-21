@@ -33,16 +33,19 @@ export function AutocompleteContainer2() {
         return postTitles;
     };
 
-    const handleChange = async (searchQuery: string) => {
-        setQuery(searchQuery);
-        const results = await fetchData(searchQuery);
+    async function onSearchChange() {
+        const results = await fetchData(query);
         setSuggestions(results);
-    };
+    }
+
+    useEffect(() => {
+        onSearchChange()
+    }, [query])
 
     return (
         <div> 
             <h2>Welcome Search</h2>
-            <Autocomplete suggestions={suggestions} searchQuery={query} onChange={handleChange} />
+            <Autocomplete suggestions={suggestions} searchQuery={query} onChange={setQuery} />
         </div>
     );
 }
