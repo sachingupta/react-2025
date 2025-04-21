@@ -1,5 +1,5 @@
 import { useState } from 'react';
-export function MyButton({globalCount, onGlobalClick}) {
+export function Counter({globalCount, onGlobalClick}) {
   const [count, setCount] = useState(0);
   function handleClick() {
     setCount(count + 1);
