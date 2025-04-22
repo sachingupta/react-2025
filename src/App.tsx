@@ -15,6 +15,7 @@ import { AutocompleteContainer2 } from './components/Autocomplete2';
 import { ProgressBar } from './components/ProgressBar';
 import { ModalLauncer } from './components/ModalDialog';
 import { TrafficLight } from './components/TrafficLight';
+import { DigitalClock } from './components/DigitalClock';
 
 function App() {
   const [globalCount, setGlobalCount] = useState(0);
@@ -60,10 +61,12 @@ function App() {
       <ProgressBar value={10} />
       <h2> Modal Dialog</h2>
       <ModalLauncer />
-      </div>)}
       <h2> Traffic Light</h2>
       <TrafficLight />
       <TrafficLight layout='horizontal' />
+      </div>)}
+      <h2> Digital Clock</h2>
+      <DigitalClock />
     </>
   )
 }
