@@ -13,7 +13,7 @@ import { ContactForm } from './components/Form';
 import { AutocompleteContainer } from './components/Autocomplete';
 import { AutocompleteContainer2 } from './components/Autocomplete2';
 import { ProgressBar } from './components/ProgressBar';
-import { ModalDialog, ModalLauncer } from './components/ModalDialog';
+import { ModalLauncer } from './components/ModalDialog';
 import { TrafficLight } from './components/TrafficLight';
 
 function App() {
@@ -63,6 +63,7 @@ function App() {
       </div>)}
       <h2> Traffic Light</h2>
       <TrafficLight />
+      <TrafficLight layout='horizontal' />
     </>
   )
 }
